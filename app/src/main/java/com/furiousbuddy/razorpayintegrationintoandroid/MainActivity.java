@@ -115,7 +115,7 @@ public class MainActivity extends Activity implements PaymentResultListener {
     @Override
     public void onPaymentError(int i, String s) {
         try {
-        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentError", e);
         }
