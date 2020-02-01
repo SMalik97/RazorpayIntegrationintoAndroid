@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements PaymentResultListener {
         /**
          * Set your logo here
          */
-        checkout.setImage(R.drawable.ic_launcher_background);
+        checkout.setImage(R.drawable.app_icon);
 
         /**
          * Reference to current activity
