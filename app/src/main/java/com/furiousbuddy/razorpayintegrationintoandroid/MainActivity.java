@@ -44,56 +44,23 @@ public class MainActivity extends Activity implements PaymentResultListener {
     }
 
     public void startPayment() {
-        /**
-         * Instantiate Checkout
-         */
         Checkout checkout = new Checkout();
-
-        /**
-         * Set your logo here
-         */
-        checkout.setImage(R.drawable.ic_launcher_foreground);
-
-        /**
-         * Reference to current activity
-         */
+        checkout.setImage(R.drawable.ic_launcher_background);
         final Activity activity = this;
 
-        /**
-         * Pass your payment options to the Razorpay Checkout as a JSONObject
-         */
         try {
             JSONObject options = new JSONObject();
 
             //You can omit the image option to fetch the image from dashboard
             options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
-
-            /**
-             * Merchant Name
-             * eg: ACME Corp || HasGeek etc.
-             */
             options.put("name", name);
-
-            /**
-             * Description can be anything
-             * eg: Order #123123
-             *     Invoice Payment
-             *     etc.
-             */
             options.put("description", description);
-
             options.put("currency", currency);
-
-            /**
-             * Amount is always passed in PAISE
-             * Eg: "500" = Rs 5.00
-             */
             options.put("amount", amount);
 
             JSONObject preFill = new JSONObject();
             preFill.put("email", email.getText().toString());
             preFill.put("contact", phone.getText().toString());
-
             options.put("prefill", preFill);
 
             checkout.open(activity, options);
